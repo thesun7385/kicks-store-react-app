@@ -1,0 +1,86 @@
+[
+  {
+    "id": "sku1",
+    "name": "Nike Air Max 90",
+    "category": "Men",
+    "price": 100,
+    "image": "https://res.cloudinary.com/dwsihr9yg/image/upload/v1724550680/kicks-shoes/airmaxSafari_yrcesg.jpg"
+  },
+  {
+    "id": "sku2",
+    "name": "Nike Air Zoom Pegasus 39",
+    "category": "Men",
+    "price": 120,
+    "image": "https://res.cloudinary.com/dwsihr9yg/image/upload/v1724550680/kicks-shoes/airmaxSafari_yrcesg.jpg"
+  },
+  {
+    "id": "sku3",
+    "name": "Nike React Infinity Run Flyknit",
+    "category": "Men",
+    "price": 130,
+    "image": "https://res.cloudinary.com/dwsihr9yg/image/upload/v1724550680/kicks-shoes/airmaxSafari_yrcesg.jpg"
+  },
+  {
+    "id": "sku4",
+    "name": "Nike Air Force 1",
+    "category": "Women",
+    "price": 95,
+    "image": "https://res.cloudinary.com/dwsihr9yg/image/upload/v1724550680/kicks-shoes/airmaxSafari-blue_khjstd.jpg"
+  },
+  {
+    "id": "sku5",
+    "name": "Nike Air Max 270",
+    "category": "Women",
+    "price": 110,
+    "image": "https://res.cloudinary.com/dwsihr9yg/image/upload/v1724550680/kicks-shoes/airmaxSafari-blue_khjstd.jpg"
+  },
+  {
+    "id": "sku6",
+    "name": "Nike React Miler",
+    "category": "Women",
+    "price": 125,
+    "image": "https://res.cloudinary.com/dwsihr9yg/image/upload/v1724550680/kicks-shoes/airmaxSafari-blue_khjstd.jpg"
+  },
+  {
+    "id": "sku7",
+    "name": "Nike Air Zoom Pegasus 39",
+    "category": "Kids",
+    "price": 60,
+    "image": "https://res.cloudinary.com/dwsihr9yg/image/upload/v1724550680/kicks-shoes/airmaxSafari-blue_khjstd.jpg"
+  },
+  {
+    "id": "sku8",
+    "name": "Nike Revolution 6",
+    "category": "Kids",
+    "price": 55,
+    "image": "https://res.cloudinary.com/dwsihr9yg/image/upload/v1724550680/kicks-shoes/airmaxSafari-blue_khjstd.jpg"
+  },
+  {
+    "id": "sku9",
+    "name": "Nike Flex Runner 2",
+    "category": "Kids",
+    "price": 50,
+    "image": "https://res.cloudinary.com/dwsihr9yg/image/upload/v1724550680/kicks-shoes/airmaxSafari-blue_khjstd.jpg"
+  },
+  {
+    "id": "sku10",
+    "name": "Nike Air VaporMax",
+    "category": "Men",
+    "price": 150,
+    "image": "https://res.cloudinary.com/dwsihr9yg/image/upload/v1724550679/kicks-shoes/kyrie7_utdqsr.jpg"
+  },
+  {
+    "id": "sku11",
+    "name": "Nike ZoomX Invincible Run Flyknit",
+    "category": "Women",
+    "price": 140,
+    "image": "https://res.cloudinary.com/dwsihr9yg/image/upload/v1724550679/kicks-shoes/nike-run_xno0wp.jpg"
+  },
+  {
+    "id": "sku12",
+    "name": "Nike Air Slip-On",
+    "category": "Kids",
+    "price": 65,
+    "image": "https://res.cloudinary.com/dwsihr9yg/image/upload/v1724550678/kicks-shoes/kids-shoes_htrvg1.jpg"
+  }
+]
