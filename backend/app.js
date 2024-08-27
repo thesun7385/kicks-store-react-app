@@ -37,14 +37,9 @@ app.get("/shoes", async (req, res) => {
   }
 
   // Return the response as
-  res.json({
-    shoes: shoes.map((shoe) => ({
-      id: shoe.id,
-      name: shoe.name,
-      price: shoe.price,
-      image: shoe.image,
-    })),
-  });
+  res.json({ shoes });
+
+
 });
 
 // Route to Get product by id

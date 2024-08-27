@@ -2,7 +2,13 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        "jost": ["Jost", "sans-serif"], // fix font issue
+        "inter": ["Inter", "sans-serif"],
+        "anton": ["Anton", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };
