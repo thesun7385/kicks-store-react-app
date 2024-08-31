@@ -11,12 +11,12 @@ export default function Footer() {
     <footer>
       {/* Footer box */}
 
-      <div className=" mx-auto p-10 ">
-        <div className="border-y border-gray-100 py-6">
+      <div className=" mx-auto p-8">
+        <div className="border-y border-zinc-200">
           {/* Contact box */}
-          <div className="flex flex-row justify-between">
+          <div className="flex flex-col gap-y-10 py-10 sm:flex-row justify-between">
             {/* Get help box */}
-            <div className="space-y-2">
+            <div className="space-y-4">
               <h2 className="font-anton text-base uppercase">Get help</h2>
               <nav className="font-inter list-none space-y-2  hover:text-gray-800">
                 <li>
@@ -37,7 +37,7 @@ export default function Footer() {
               </nav>
             </div>
             {/* Get About us*/}
-            <div className="space-y-2">
+            <div className="space-y-4">
               <h2 className="font-anton text-base uppercase">About us</h2>
               <nav className="font-inter list-none space-y-2  hover:text-gray-800">
                 <li>
@@ -57,7 +57,7 @@ export default function Footer() {
                 </li>
               </nav>
             </div>
-            <div className="space-y-2">
+            <div className="space-y-4">
               <h2 className="font-anton text-base uppercase">Join us</h2>
               <nav className="font-inter list-none space-y-2  hover:text-gray-800">
                 <li>
@@ -69,7 +69,7 @@ export default function Footer() {
               </nav>
             </div>
             {/* Get Social box*/}
-            <div className="space-y-2">
+            <div className="space-y-4">
               <h2 className="font-anton text-base uppercase">Social</h2>
               <div className="flex flew-row space-x-4 ">
                 <TiSocialFacebook className="text-2xl" />
@@ -81,8 +81,11 @@ export default function Footer() {
           </div>
           {/* Policy box */}
           <ul>
-            <div className="mt-8 font-inter flex justify-between items-center">
-              <div className="flex flew-row s ">
+            <div
+              className="mt-12 mb-6 font-inter flex flex-col gap-y-3
+            sm:flex-row md:justify-between sm:items-center"
+            >
+              <div className="flex flew-row">
                 <ImLocation className="text-lg" />
                 <p>Canada</p>
               </div>
@@ -94,6 +97,15 @@ export default function Footer() {
               <p>Cookie Settings</p>
             </div>
           </ul>
+        </div>
+        {/* Copyright box */}
+        <div
+          className="mt-10 font-inter font-light text-xs sm:text-sm text-gray-400 
+         flex flex-row justify-center "
+        >
+          <div className="text-center">
+            <p> © 2024 Supachai Redesign | All Rights Reserved</p>
+          </div>
         </div>
       </div>
     </footer>

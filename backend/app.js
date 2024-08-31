@@ -38,8 +38,6 @@ app.get("/shoes", async (req, res) => {
 
   // Return the response as
   res.json({ shoes });
-
-
 });
 
 // Route to Get product by id

@@ -6,11 +6,15 @@ import Footer from "../components/Footer";
 export default function Root() {
   return (
     <>
-      <MainNavigation />
-      <main>
-        <Outlet />
-      </main>
-      <Footer />
+      <div className="flex flex-col h-screen justify-between">
+        <MainNavigation />
+        <div>
+          <main>
+            <Outlet />
+          </main>
+        </div>
+        <Footer />
+      </div>
     </>
   );
 }

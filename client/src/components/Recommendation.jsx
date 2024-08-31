@@ -43,11 +43,13 @@ export default function Recommendation() {
 
   return (
     <>
-      <div className="p-10 space-y-14 ">
-        <div className="flex justify-between">
-          <h1 className="font-inter text-6xl font-semibold">New Arrivals</h1>
+      <div className="p-8">
+        <div className="flex flex-col sm:flex-row sm:justify-between">
+          <h1 className="font-inter text-3xl text-center sm:text-6xl sm:text-left font-semibold">
+            New Arrivals
+          </h1>
           {/* Link to see all items */}
-          <p className="font-inter text-sm font-bold underline">
+          <p className="font-inter text-sm font-bold underline py-5">
             See all items
           </p>
         </div>
@@ -62,7 +64,7 @@ export default function Recommendation() {
 
         {/* Render recommended shoes */}
         {!isLoading && !error && fetchedProducts.length > 0 && (
-          <div className="flex flex-row space-x-6 p-8 justify-center">
+          <div className="flex flex-col sm:flex-row p-10 sm:space-x-6 justify-center items-center">
             {fetchedProducts.map((product) => (
               <Product key={product.id} product={product} />
             ))}
