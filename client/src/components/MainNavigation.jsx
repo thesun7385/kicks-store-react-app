@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 // React icons
 import { IoIosSearch } from "react-icons/io";
@@ -23,26 +24,50 @@ export default function MainNavigation() {
         <header className="flex justify-center h-20">
           <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
 
-          <nav className="flex flex-row  justify-between w-full items-center p-8 ">
+          <nav className="text-black flex flex-row justify-between w-full items-center p-8 ">
             {/* Logo */}
 
-            <h1 className="font-jost uppercase font-extrabold italic text-base sm:text-2xl">
+            <h1 className=" font-jost uppercase font-extrabold italic text-base sm:text-xl ">
               Kicks Store
             </h1>
 
             <ul>
               {/* Navigation menu */}
               <div
-                className="h-6 w-96 font-inter lg:flex font-semibold justify-between 
-              items-center hidden text-base"
+                className="h-6 w-full font-inter md:flex md:text-lg font-semibold space-x-4 
+              items-center justify-center hidden text-base  "
               >
-                <NavLink to="/" end>
+                <NavLink
+                  to="/"
+                  end
+                  className="hover:text-slate-500 transition-colors duration-200"
+                >
                   Home
                 </NavLink>
-                <NavLink to="/product">Men</NavLink>
-                <NavLink to="/product">Women</NavLink>
-                <NavLink to="/product">Kids</NavLink>
-                <NavLink to="/about">About Us</NavLink>
+                <NavLink
+                  to="/product/men"
+                  className="hover:text-slate-500 transition-colors duration-200"
+                >
+                  Men
+                </NavLink>
+                <NavLink
+                  to="/product/women"
+                  className="hover:text-slate-500 transition-colors duration-200"
+                >
+                  Women
+                </NavLink>
+                <NavLink
+                  to="/product/kids"
+                  className="hover:text-slate-500 transition-colors duration-200"
+                >
+                  Kids
+                </NavLink>
+                <NavLink
+                  to="/about"
+                  className="hover:text-slate-500 transition-colors duration-200"
+                >
+                  About Us
+                </NavLink>
               </div>
             </ul>
             {/* UI icons */}
@@ -52,10 +77,10 @@ export default function MainNavigation() {
               <MdFavoriteBorder />
               <MdOutlineShoppingBag />
               {/* Hamburger menu */}
-              <div className="drawer-content lg:hidden">
+              <div className="drawer-content md:hidden">
                 {/* Page content here */}
                 <label htmlFor="my-drawer-4">
-                  <TiThMenu />
+                  <TiThMenu className="cursor-pointer hover:text-slate-600" />
                 </label>
               </div>
             </div>
@@ -63,28 +88,36 @@ export default function MainNavigation() {
         </header>
 
         {/* Side menu */}
-        <div className="drawer-side z-50">
+        <div className="drawer-side z-50 ">
           <label
             htmlFor="my-drawer-4"
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu bg-base-200 text-base-content min-h-full w-60 p-4 ">
-            <div className="flex flex-row-reverse text-xl">
-              <IoMdClose onClick={handdleSideBar} className="cursor-pointer" />
+          <ul className="menu bg-white text-base-content min-h-full w-60 p-4 ">
+            <div className="flex flex-row-reverse text-2xl ">
+              <IoMdClose onClick={handdleSideBar} className="cursor-pointer " />
             </div>
             {/* Sidebar content here */}
             <div
-              className="font-inter flex flex-col font-2xl font-semibold justify-between 
-              items-center space-y-4"
+              className="font-inter flex flex-col text-lg font-semibold justify-between 
+              items-center space-y-4 "
             >
-              <NavLink to="/" end>
+              <NavLink to="/" onClick={handdleSideBar} end>
                 Home
               </NavLink>
-              <NavLink to="/product">Men</NavLink>
-              <NavLink to="/product">Women</NavLink>
-              <NavLink to="/product">Kids</NavLink>
-              <NavLink to="/about">About Us</NavLink>
+              <NavLink to="/product/men" onClick={handdleSideBar}>
+                Men
+              </NavLink>
+              <NavLink to="/product/women" onClick={handdleSideBar}>
+                Women
+              </NavLink>
+              <NavLink to="/product/kids" onClick={handdleSideBar}>
+                Kids
+              </NavLink>
+              <NavLink to="/about" onClick={handdleSideBar}>
+                About Us
+              </NavLink>
             </div>
           </ul>
         </div>

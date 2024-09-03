@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 import SelectBox from "../components/SelectBox";
 
@@ -25,8 +25,13 @@ export default function Proudct() {
         } else {
           const data = await response.json();
 
+          // Get Men's shoes
+          const menShoes = data.shoes.filter(
+            (shoe) => shoe.category === "Women" || shoe.category === "unisex"
+          );
+
           // Set fetched data
-          setFetchedProducts(data.shoes);
+          setFetchedProducts(menShoes);
 
           // console.log(fetchedProducts);
         }
@@ -59,11 +64,13 @@ export default function Proudct() {
               <li>
                 <Link to="/product">Shop All</Link>
               </li>
+              <li>
+                <Link to="/product/women">Women</Link>
+              </li>
             </ul>
           </div>
-
           <div className="font-anton text-black uppercase text-5xl sm:text-6xl">
-            All ({fetchedProducts.length})
+            Women ({fetchedProducts.length})
           </div>
           {/* Select box */}
 
@@ -81,8 +88,9 @@ export default function Proudct() {
           <div>
             <div
               className="m-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 
-            justify-items-center "
+        justify-items-center "
             >
+              {" "}
               {/* Add link for product id */}
               {fetchedProducts.map((product) => (
                 // Link to product detail

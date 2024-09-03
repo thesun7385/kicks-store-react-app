@@ -12,7 +12,7 @@ export default function Footer() {
       {/* Footer box */}
 
       <div className=" mx-auto p-8">
-        <div className="border-y border-zinc-200">
+        <div className="border-y border-zinc-100">
           {/* Contact box */}
           <div className="flex flex-col gap-y-10 py-10 sm:flex-row justify-between">
             {/* Get help box */}

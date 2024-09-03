@@ -1,16 +1,18 @@
 // Product component
 export default function Product({ product }) {
   return (
-    <div key={product.id} className="card w-96 h-[450px] shadow-md">
-      <figure className="h-[60%]">
+    <div key={product.id} className="m-5">
+      <figure>
         <img
           src={product.image}
           alt={product.name}
-          className="w-full h-full object-cover"
+          className="card w-[80vw] h-[80vw] max-w-[237px]  max-h-[230px] 
+          lg:max-w-[321px] lg:max-h-[337px] object-cover"
         />
       </figure>
+
       {/* card body */}
-      <div className="card-body h-[40%] flex flex-col">
+      <div className="py-2 gap-y-1 h-[40%] flex flex-col">
         <h2 className="card-title font-inter text-md sm:text-lg font-semibold">
           {product.name}
         </h2>

@@ -6,20 +6,20 @@ import kidsCollection from "../assets/collection-kids.jpg";
 export default function Category() {
   return (
     <div className="p-10 space-y-10 ">
-      <h1 className="font-inter text-3xl text-center sm:text-6xl sm:text-left font-semibold">
+      <h1 className="uppercase font-inter text-black  text-3xl text-center sm:text-6xl sm:text-left font-semibold">
         Shop by Collection
       </h1>
 
       {/* collection box */}
       <div
-        className="flex flex-col items-center sm:flex-row font-anton uppercase 
+        className="flex flex-col  text-black  items-center sm:flex-row font-anton uppercase 
       text-center text-xl justify-center sm:space-x-5"
       >
         <div>
           <img
             src={menCollection}
             alt="men-collection"
-            className="w-auto h-[409px] sm:h-[518px] object-cover"
+            className="w-[300px] sm:w-auto h-[409px] sm:h-[518px] object-cover"
           />
           <h2 className="p-3">Mens</h2>
         </div>
@@ -27,7 +27,7 @@ export default function Category() {
           <img
             src={womenCollection}
             alt="women-collection"
-            className="w-auto h-[409px] sm:h-[518px] object-cover"
+            className="w-[300px] sm:w-auto h-[409px] sm:h-[518px] object-cover"
           />
           <h2 className="p-3">Women</h2>
         </div>
@@ -35,7 +35,7 @@ export default function Category() {
           <img
             src={kidsCollection}
             alt="kids-collection"
-            className="w-auto h-[409px] sm:h-[518px] object-cover"
+            className="w-[300px] sm:w-auto h-[409px] sm:h-[518px] object-cover"
           />
           <h2 className="p-3">Kids</h2>
         </div>

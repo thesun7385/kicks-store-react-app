@@ -5,6 +5,9 @@ import RootLayout from "./pages/Root";
 import HomePage from "./pages/Home";
 import ProductDetailPage from "./pages/ProductDetail";
 import ProductPage from "./pages/Product";
+import ProductMenPage from "./pages/ProductMen";
+import ProductWomenPage from "./pages/ProductWomen";
+import ProductKidsPage from "./pages/ProductKids";
 import ProductsRoot from "./pages/ProductsRoot";
 import AboutPage from "./pages/About";
 import ErrorPage from "./pages/Error";
@@ -28,10 +31,48 @@ const router = createBrowserRouter([
             index: true,
             element: <ProductPage />, // product page
           },
+
+          // Men's shoes page with nested productId route
           {
-            path: ":productId",
-            id: "product-detail",
-            element: <ProductDetailPage />, // product detail page
+            path: "men",
+            children: [
+              {
+                index: true,
+                element: <ProductMenPage />, // men's product page
+              },
+              {
+                path: ":productId",
+                element: <ProductDetailPage />, // men's product detail page
+              },
+            ],
+          },
+          // Women product page
+          {
+            path: "women",
+            children: [
+              {
+                index: true,
+                element: <ProductWomenPage />, // men's product page
+              },
+              {
+                path: ":productId",
+                element: <ProductDetailPage />, // men's product detail page
+              },
+            ],
+          },
+          // Kids product page
+          {
+            path: "kids",
+            children: [
+              {
+                index: true,
+                element: <ProductKidsPage />, // kids product page
+              },
+              {
+                path: ":productId",
+                element: <ProductDetailPage />, // men's product detail page
+              },
+            ],
           },
         ],
       },

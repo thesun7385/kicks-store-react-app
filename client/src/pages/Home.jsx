@@ -1,17 +1,23 @@
+import { Helmet } from "react-helmet";
+
 import Hero from "../components/Hero";
 import WelcomeMessage from "../components/WelcomeMessage";
-import Category from "../components/Category";
+import Collection from "../components/Collection";
 import Recommendation from "../components/Recommendation";
 
 // Home page component
 export default function Home() {
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Kicks Stores</title>
+      </Helmet>
       {/* Home section */}
       <section>
         <Hero />
         <WelcomeMessage />
-        <Category />
+        <Collection />
         <Recommendation />
       </section>
     </>
