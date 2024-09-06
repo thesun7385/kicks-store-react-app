@@ -12,6 +12,12 @@ import ProductsRoot from "./pages/ProductsRoot";
 import AboutPage from "./pages/About";
 import ErrorPage from "./pages/Error";
 
+// Import redux and react, and actions
+import { useSelector, useDispatch } from "react-redux";
+import { Fragment, useEffect } from "react";
+import { fetchCartData, sendCartData } from "./store/cart-actions";
+import Cart from "./components/Cart/Cart";
+
 // Create a browser router
 const router = createBrowserRouter([
   {
@@ -89,6 +95,7 @@ function App() {
   return (
     <>
       <RouterProvider router={router} />
+      <Cart />
     </>
   );
 }

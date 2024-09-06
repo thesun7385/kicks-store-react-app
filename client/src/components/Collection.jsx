@@ -12,8 +12,8 @@ export default function Category() {
 
       {/* collection box */}
       <div
-        className="flex flex-col  text-black  items-center sm:flex-row font-anton uppercase 
-      text-center text-xl justify-center sm:space-x-5"
+        className="flex flex-col  text-black items-center sm:flex-row font-anton uppercase 
+      text-center text-2xl justify-center sm:space-x-5"
       >
         <div>
           <img

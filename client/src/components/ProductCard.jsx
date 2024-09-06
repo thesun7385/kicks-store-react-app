@@ -12,14 +12,17 @@ export default function Product({ product }) {
       </figure>
 
       {/* card body */}
-      <div className="py-2 gap-y-1 h-[40%] flex flex-col">
-        <h2 className="card-title font-inter text-md sm:text-lg font-semibold">
+      <div className="p-2 gap-y-1 h-[40%] flex flex-col">
+        <h2
+          className="card-title font-inter text-sm sm:text-lg
+        font-semibold "
+        >
           {product.name}
         </h2>
-        <p className="font-inter text-base sm:text-lg font-light text-zinc-400">
+        <p className="font-inter text-sm sm:text-lg font-light text-zinc-400">
           {product.category}
         </p>
-        <p className="font-inter text-base sm:text-lg font-semibold">
+        <p className="font-inter text-sm sm:text-lg font-semibold">
           ${product.price}
         </p>
       </div>

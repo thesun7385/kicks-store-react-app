@@ -1,6 +1,26 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { cartActions } from "../store/cart-slice";
 
 export default function ProductDetailCard({ product }) {
+  // dispatch action
+  const dispatch = useDispatch();
+
+  // Create a new cart item
+  const { id, name, price, image, category } = product;
+  // Add item to cart
+  const addToCartHandler = () => {
+    dispatch(
+      cartActions.addItemToCart({
+        id,
+        name,
+        price,
+        image,
+        category,
+      })
+    );
+  };
+
   // size array
   const size = [
     4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12,
@@ -52,10 +72,17 @@ export default function ProductDetailCard({ product }) {
             </div>
             {/* Button */}
             <div className="flex flex-col gap-y-2 items-center">
-              <button className=" w-96 bg-black  text-white uppercase rounded-lg px-2 py-3  hover:bg-slate-800">
+              <button
+                className=" w-96 bg-black  text-white uppercase 
+              rounded-lg px-2 py-3  hover:bg-slate-800"
+                onClick={addToCartHandler}
+              >
                 Add to Cart
               </button>
-              <button className="w-96 text-black border-2 border-slate-800 uppercase  rounded-lg px-2 py-3  hover:bg-red-400">
+              <button
+                className="w-96 text-black border-2 border-slate-800 uppercase  
+              rounded-lg px-2 py-3  hover:bg-red-400"
+              >
                 Add to Favorites
               </button>
             </div>

@@ -4,7 +4,7 @@ import Hero from "../components/Hero";
 import WelcomeMessage from "../components/WelcomeMessage";
 import Collection from "../components/Collection";
 import Recommendation from "../components/Recommendation";
-
+import Cart from "../components/Cart/Cart";
 // Home page component
 export default function Home() {
   return (

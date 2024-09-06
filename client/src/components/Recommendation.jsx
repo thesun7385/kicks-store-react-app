@@ -58,8 +58,20 @@ export default function Recommendation() {
         </div>
         {/* Error message */}
         {error && <p className="text-red-500">{error}</p>}
-        {/* Loading state */}
-        {isLoading && <p>Loading...</p>}
+        {isLoading && (
+          <div className="flex justify-center items-center">
+            <div className="m-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  ">
+              {/* Render skeletons while loading */}
+              {Array.from({ length: 3 }).map((index) => (
+                <div
+                  className="m-5 skeleton card w-[80vw] h-[80vw] max-w-[237px]  
+                max-h-[230px] lg:max-w-[321px] lg:max-h-[337px] object-cover"
+                  key={index}
+                ></div>
+              ))}
+            </div>
+          </div>
+        )}
         {/* New arrivals box */}
         {/* Render recommended shoes */}
         {!isLoading && !error && fetchedProducts.length > 0 && (

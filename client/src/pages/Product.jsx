@@ -74,14 +74,28 @@ export default function Proudct() {
         {/* Error message */}
         {error && <p className="text-red-500">{error}</p>}
         {/* Loading state */}
-        {isLoading && <p>Loading...</p>}
+        {isLoading && (
+          <div
+            className="m-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 
+          justify-items-center  "
+          >
+            {/* Render skeletons while loading */}
+            {Array.from({ length: 9 }).map((index) => (
+              <div
+                className="m-5 skeleton card w-[80vw] h-[80vw] max-w-[237px]  
+                max-h-[230px] lg:max-w-[321px] lg:max-h-[337px] object-cover"
+                key={index}
+              ></div>
+            ))}
+          </div>
+        )}
         {/* New arrivals box */}
         {/* Render recommended shoes */}
         {!isLoading && !error && fetchedProducts.length > 0 && (
           <div>
             <div
               className="m-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 
-            justify-items-center "
+            justify-items-center   "
             >
               {/* Add link for product id */}
               {fetchedProducts.map((product) => (

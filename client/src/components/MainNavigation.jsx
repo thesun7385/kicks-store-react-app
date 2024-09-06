@@ -4,9 +4,10 @@ import { NavLink } from "react-router-dom";
 import { IoIosSearch } from "react-icons/io";
 import { FaRegUser } from "react-icons/fa";
 import { MdFavoriteBorder } from "react-icons/md";
-import { MdOutlineShoppingBag } from "react-icons/md";
 import { TiThMenu } from "react-icons/ti";
 import { IoMdClose } from "react-icons/io";
+
+import CartButton from "./Cart/CartButton";
 
 // This is nav-bar component
 export default function MainNavigation() {
@@ -75,7 +76,8 @@ export default function MainNavigation() {
               <IoIosSearch />
               <FaRegUser />
               <MdFavoriteBorder />
-              <MdOutlineShoppingBag />
+              {/* Cart button */}
+              <CartButton />
               {/* Hamburger menu */}
               <div className="drawer-content md:hidden">
                 {/* Page content here */}
