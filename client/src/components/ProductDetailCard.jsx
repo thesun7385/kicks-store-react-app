@@ -1,15 +1,36 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../store/cart-slice";
+import { favActions } from "../store/fav-slice";
+
+import { useState } from "react";
 
 export default function ProductDetailCard({ product }) {
-  // dispatch action
+  ///// For Cart module /////
+  // Dummy size array
+  const usSize = [
+    4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12,
+    12.5, 13, 14, 15,
+  ];
+
+  // Initial size
+  const [selectedSize, setSelectedSize] = useState(0);
+  const [cartFeedback, setCartFeedback] = useState(false);
+
+  // function to handle size selection
+  function sizeHandler(size) {
+    setSelectedSize(size);
+    console.log(size);
+  }
+
+  // Dispatch actions from store
   const dispatch = useDispatch();
 
   // Create a new cart item
   const { id, name, price, image, category } = product;
+
   // Add item to cart
-  const addToCartHandler = () => {
+  function addToCartHandler() {
+    // Access the addItemToCart action from the cart slice
     dispatch(
       cartActions.addItemToCart({
         id,
@@ -17,20 +38,63 @@ export default function ProductDetailCard({ product }) {
         price,
         image,
         category,
+        size: selectedSize,
       })
     );
-  };
+  }
 
-  // size array
-  const size = [
-    4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12,
-    12.5, 13, 14, 15,
-  ];
+  // Function to handle cart feedback
+  function cartFeedbackHandler() {
+    setCartFeedback(true);
+  }
+
+  ///// For favorite /////
+
+  // Get the favorite lost
+  const favList = useSelector((state) => state.fav.items);
+
+  // Check if the product is already in favorite
+  const isFavorite = favList.some((item) => item.id === product.id);
+
+  // State for favorite, initial state is false
+  const [favorite, setFavorite] = useState(isFavorite);
+
+  // function to handle favorite by id
+  function favoriteHandler() {
+    // If item is already in favorite, remove it
+    if (isFavorite) {
+      dispatch(favActions.removeItemFromFav(product.id)); // remove from favorite
+      setFavorite(false);
+    } else {
+      dispatch(favActions.addItemToFav(product)); // add to favorite
+      setFavorite(true);
+    }
+  }
 
   return (
     <>
       {/* Product container */}
       <div className="m-5">
+        {/* Cart feedback info message */}
+        {cartFeedback && selectedSize === 0 && (
+          <div role="alert" className="alert  ">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              className="h-6 w-6 shrink-0 stroke-current"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+            <span>Please select your size.</span>
+          </div>
+        )}
+
         <div
           className="flex sm:flex-row justify-center flex-col items-center sm:items-start 
           "
@@ -60,30 +124,45 @@ export default function ProductDetailCard({ product }) {
             {/* size */}
             <div>
               <div className="py-2 text-lg">Select Size</div>
-              {size.map((s) => (
+              {usSize.map((s) => (
                 <button
                   key={s}
-                  className="bg-white border hover:bg-gray-100
-                  border-slate-800 text-black rounded-xl px-3 py-3 m-2 text-sm"
+                  className={` border rounded-xl px-3 py-3 m-2 text-sm
+                   ${
+                     selectedSize === s
+                       ? "bg-slate-800 text-white"
+                       : "bg-white text-black border-slate-800 hover:bg-gray-800 hover:text-white"
+                   }`}
+                  onClick={() => sizeHandler(s)}
                 >
                   US {s}
                 </button>
               ))}
             </div>
-            {/* Button */}
+            {/* Cart Button */}
+
             <div className="flex flex-col gap-y-2 items-center">
               <button
                 className=" w-96 bg-black  text-white uppercase 
-              rounded-lg px-2 py-3  hover:bg-slate-800"
-                onClick={addToCartHandler}
+              rounded-lg px-2 py-3  hover:bg-slate-800 border-2 border-black"
+                onClick={
+                  selectedSize === 0 ? cartFeedbackHandler : addToCartHandler
+                }
               >
                 Add to Cart
               </button>
+
+              {/* Favorite Button */}
               <button
-                className="w-96 text-black border-2 border-slate-800 uppercase  
-              rounded-lg px-2 py-3  hover:bg-red-400"
+                onClick={favoriteHandler}
+                className={`w-96 uppercase rounded-lg px-2 py-3 
+                ${
+                  favorite
+                    ? "bg-red-400 text-white border-red-400 border-2 hover:bg-red-500 "
+                    : "border-slate-800  border-2 hover:bg-red-300 hover:text-white hover:border-red-300"
+                }`}
               >
-                Add to Favorites
+                {favorite ? "Remove from Favorite" : "Add to Favorite"}
               </button>
             </div>
             {/* Detail */}

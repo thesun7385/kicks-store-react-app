@@ -6,10 +6,10 @@ const uiSlice = createSlice({
     initialState: { cartIsVisible: false, notification: null },
     // Reducers: toggle, showNotifications
     reducers: {
-        // Toggle the cart
-        toggle(state) {
-            state.cartIsVisible = !state.cartIsVisible;
-        },
+        // // Toggle the cart
+        // toggle(state) {
+        //     state.cartIsVisible = !state.cartIsVisible;
+        // },
 
         // Open the cart
         openCart(state) {
@@ -21,14 +21,14 @@ const uiSlice = createSlice({
             state.cartIsVisible = false;
         },
 
-        // Show notification
-        showNotification(state, action) {
-            state.notification = {
-                status: action.payload.status,
-                title: action.payload.title,
-                message: action.payload.message,
-            };
-        },
+        // // Show notification
+        // showNotification(state, action) {
+        //     state.notification = {
+        //         status: action.payload.status,
+        //         title: action.payload.title,
+        //         message: action.payload.message,
+        //     };
+        // },
     }
 })
 

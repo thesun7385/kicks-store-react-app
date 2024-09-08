@@ -5,7 +5,7 @@ import { cartActions } from "../../store/cart-slice";
 // Cart item component
 export default function CartItem(props) {
   // Get the product details
-  const { id, name, image, category, quantity, price } = props.item;
+  const { id, name, image, category, quantity, total, size } = props.item;
 
   const dispatch = useDispatch();
 
@@ -16,7 +16,8 @@ export default function CartItem(props) {
 
   // Function to remove item from cart
   function removeItemHandler() {
-    dispatch(cartActions.removeItemFromCart(id));
+    // Add {} because redux expects an object
+    dispatch(cartActions.removeItemFromCart({ id, size }));
   }
 
   return (
@@ -40,12 +41,13 @@ export default function CartItem(props) {
               <h3>
                 <a>{name}</a>
               </h3>
-              <p className="ml-2">$ {price}</p>
+              <p className="ml-2">$ {total}</p>
             </div>
             <p className="mt-1 text-sm text-gray-500">{category}</p>
+            <p className="mt-1 text-sm text-gray-500">US {size}</p>
           </div>
           <div className="flex flex-1 items-end justify-between text-sm">
-            <p className="text-gray-500">Qty {quantity}</p>
+            <p className="text-gray-500">x {quantity}</p>
 
             <div className="flex">
               <button

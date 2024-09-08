@@ -5,14 +5,14 @@ import kidsCollection from "../assets/collection-kids.jpg";
 // category component
 export default function Category() {
   return (
-    <div className="p-10 space-y-10 ">
-      <h1 className="uppercase font-inter text-black  text-3xl text-center sm:text-6xl sm:text-left font-semibold">
+    <div className="m-8">
+      <h1 className="uppercase font-inter text-black  text-3xl text-center sm:text-6xl sm:text-left font-extrabold">
         Shop by Collection
       </h1>
 
       {/* collection box */}
       <div
-        className="flex flex-col  text-black items-center sm:flex-row font-anton uppercase 
+        className="py-8 flex flex-col  text-black items-center sm:flex-row font-anton uppercase 
       text-center text-2xl justify-center sm:space-x-5"
       >
         <div>

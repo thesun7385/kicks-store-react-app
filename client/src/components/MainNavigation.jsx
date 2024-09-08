@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 // React icons
 import { IoIosSearch } from "react-icons/io";
@@ -28,9 +27,17 @@ export default function MainNavigation() {
           <nav className="text-black flex flex-row justify-between w-full items-center p-8 ">
             {/* Logo */}
 
-            <h1 className=" font-jost uppercase font-extrabold italic text-base sm:text-xl ">
+            {/* <h1 className="font-jost uppercase font-extrabold italic text-base sm:text-xl ">
               Kicks Store
-            </h1>
+            </h1> */}
+
+            <div className=" bg-base-100 ">
+              <NavLink to="/" end>
+                <a className="btn btn-ghost font-jost uppercase font-bold italic text-black text-base sm:text-xl">
+                  Kicks Store
+                </a>
+              </NavLink>
+            </div>
 
             <ul>
               {/* Navigation menu */}
@@ -38,13 +45,6 @@ export default function MainNavigation() {
                 className="h-6 w-full font-inter md:flex md:text-lg font-semibold space-x-4 
               items-center justify-center hidden text-base  "
               >
-                <NavLink
-                  to="/"
-                  end
-                  className="hover:text-slate-500 transition-colors duration-200"
-                >
-                  Home
-                </NavLink>
                 <NavLink
                   to="/product/men"
                   className="hover:text-slate-500 transition-colors duration-200"
@@ -72,17 +72,21 @@ export default function MainNavigation() {
               </div>
             </ul>
             {/* UI icons */}
-            <div className="h-6 w-40 flex justify-between items-center text-base md:text-lg">
+            <div className="h-6 w-40 flex justify-between items-center text-base md:text-lg  ">
               <IoIosSearch />
-              <FaRegUser />
-              <MdFavoriteBorder />
+              <NavLink to="/register">
+                <FaRegUser />
+              </NavLink>
+              <NavLink to="/favorites">
+                <MdFavoriteBorder />
+              </NavLink>
               {/* Cart button */}
               <CartButton />
               {/* Hamburger menu */}
-              <div className="drawer-content md:hidden">
+              <div className="drawer-content md:hidden ">
                 {/* Page content here */}
                 <label htmlFor="my-drawer-4">
-                  <TiThMenu className="cursor-pointer hover:text-slate-600" />
+                  <TiThMenu />
                 </label>
               </div>
             </div>

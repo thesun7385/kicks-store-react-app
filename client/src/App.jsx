@@ -11,8 +11,10 @@ import ProductKidsPage from "./pages/ProductKids";
 import ProductsRoot from "./pages/ProductsRoot";
 import AboutPage from "./pages/About";
 import ErrorPage from "./pages/Error";
+import Register from "./pages/Register";
+import Favorite from "./pages/Favorite";
 
-// Import redux and react, and actions
+// Import redux and react, and actions for fetching and sending cart data
 import { useSelector, useDispatch } from "react-redux";
 import { Fragment, useEffect } from "react";
 import { fetchCartData, sendCartData } from "./store/cart-actions";
@@ -86,6 +88,16 @@ const router = createBrowserRouter([
       {
         path: "about",
         element: <AboutPage />, // about page
+      },
+      // Login page route
+      {
+        path: "register",
+        element: <Register />,
+      },
+      // Favorites page route
+      {
+        path: "favorites",
+        element: <Favorite />,
       },
     ],
   },

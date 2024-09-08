@@ -1,14 +1,15 @@
-import { Link } from "react-router-dom";
+import FavoriteList from "../components/FavoriteList";
 import { Helmet } from "react-helmet";
-import MenProductComponent from "../components/Product/MenProductComponent";
+import { Link } from "react-router-dom";
 
-export default function Proudct() {
+export default function Favorite() {
   return (
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Men</title>
+        <title>Favorites</title>
       </Helmet>
+
       <section className="min-h-screen">
         {/* Header box */}
         <div className="px-5 space-y-6">
@@ -19,18 +20,18 @@ export default function Proudct() {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/product">Shop All</Link>
-              </li>
-              <li>
-                <Link to="/product/men">Men</Link>
+                <Link to="/favorites">Favorites</Link>
               </li>
             </ul>
           </div>
 
-          {/* Render Men shoes */}
-
-          <MenProductComponent />
+          <div className="font-anton text-black uppercase text-5xl sm:text-6xl">
+            Favorites
+          </div>
         </div>
+
+        {/* Favorite list */}
+        <FavoriteList />
       </section>
     </>
   );

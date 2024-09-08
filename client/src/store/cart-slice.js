@@ -20,7 +20,7 @@ const cartSlice = createSlice({
         addItemToCart(state, action) {
             // Get the new item
             const newItem = action.payload;
-            const existingItem = state.items.find((item) => item.id === newItem.id);
+            const existingItem = state.items.find((item) => item.id && item.size === newItem.size);
 
             // Update total quantity
             state.totalQuantity++;
@@ -33,7 +33,7 @@ const cartSlice = createSlice({
                     name: newItem.name,
                     image: newItem.image,
                     category: newItem.category,
-                    // size: newItem.size,
+                    size: newItem.size,
                     price: newItem.price,
                     totalPrice: newItem.price,
                     quantity: 1,
@@ -46,16 +46,20 @@ const cartSlice = createSlice({
 
         // Remove item from cart
         removeItemFromCart(state, action) {
-            const id = action.payload;
-            const existingItem = state.items.find((item) => item.id === id)
+            // Get the item id and size
+            const { id, size } = action.payload;
+            const existingItem = state.items.find((item) => item.id && item.size === size)
 
             // update total quantity
-            state.totalQuantity--;
-            state.changed = true;
+            if (existingItem) {
+                state.totalQuantity--;
+                state.changed = true;
+            }
+
 
             // if item quantity is 1, remove it from cart
             if (existingItem.quantity === 1) {
-                state.items = state.items.filter((item) => item.id !== id)
+                state.items = state.items.filter((item) => !(item.id === id && item.size === size));
             } else {
                 existingItem.quantity--; // just decrease the quantity
                 existingItem.totalPrice = existingItem.totalPrice - existingItem.price;

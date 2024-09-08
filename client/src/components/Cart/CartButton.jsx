@@ -19,7 +19,7 @@ export default function CartButton(props) {
       <div className="relative">
         <MdOutlineShoppingBag className="" />
 
-        <span className="font-inter absolute -top-2 left-3 rounded-full bg-red-500 py-0.5 px-1.5 text-xs text-red-50">
+        <span className="font-inter absolute -top-2 left-3 rounded-full bg-red-500 py-0.9 px-1 text-xs text-red-50">
           {cartQuantity}
         </span>
       </div>

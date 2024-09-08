@@ -46,7 +46,7 @@ export default function Recommendation() {
     <>
       <div className="m-8">
         <div className="flex flex-col sm:flex-row sm:justify-between">
-          <h1 className="font-inter uppercase text-black  text-4xl text-center sm:text-6xl sm:text-left font-semibold">
+          <h1 className="uppercase font-inter text-black  text-3xl text-center sm:text-6xl sm:text-left font-extrabold">
             New Arrivals
           </h1>
           {/* Link to see all items */}

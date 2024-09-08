@@ -1,8 +1,5 @@
-import { useState } from "react";
-
 // import redux components
 import { useSelector, useDispatch } from "react-redux";
-import { Fragment, useEffect } from "react";
 import { uiActions } from "../../store/ui-slice";
 import CartItem from "./CartItem";
 
@@ -22,6 +19,11 @@ export default function Cart() {
   // Get the cart items
   const cartItems = useSelector((state) => state.cart.items);
 
+  // Calculate the total price
+  const totalPrice = cartItems.reduce((total, item) => {
+    return total + item.price * item.quantity;
+  }, 0);
+
   // Use dispatch to dispatch the action
   const dispatch = useDispatch();
 
@@ -38,12 +40,12 @@ export default function Cart() {
         duration-500 ease-in-out data-[closed]:opacity-0"
       />
 
-      <div className="fixed inset-0 overflow-hidden">
+      <div className="fixed inset-0 overflow-hidden ">
         <div className="absolute inset-0 overflow-hidden">
           <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
             <DialogPanel
               transition
-              className="pointer-events-auto w-screen max-w-md transform transition duration-500 
+              className="pointer-events-auto w-screen max-w-lg transform transition duration-500 
               ease-in-out data-[closed]:translate-x-full sm:duration-700"
             >
               <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
@@ -76,6 +78,7 @@ export default function Cart() {
                               name: items.name,
                               image: items.image,
                               price: items.price,
+                              size: items.size,
                               category: items.category,
                               quantity: items.quantity,
                               total: items.totalPrice,
@@ -83,8 +86,8 @@ export default function Cart() {
                           />
                         ))
                       ) : (
-                        <div className="text-center text-lg text-gray-500">
-                          Your cart is empty
+                        <div className="font-inter text-center text-lg text-gray-500">
+                          Your cart is empty.
                         </div>
                       )}
                     </div>
@@ -94,7 +97,7 @@ export default function Cart() {
                 <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                   <div className="flex justify-between text-base font-medium text-gray-900">
                     <p>Subtotal</p>
-                    <p>$ 0</p>
+                    <p>$ {totalPrice}</p>
                   </div>
                   <p className="mt-0.5 text-sm text-gray-500">
                     Shipping and taxes calculated at checkout.
