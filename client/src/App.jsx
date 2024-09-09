@@ -15,9 +15,9 @@ import Register from "./pages/Register";
 import Favorite from "./pages/Favorite";
 
 // Import redux and react, and actions for fetching and sending cart data
-import { useSelector, useDispatch } from "react-redux";
-import { Fragment, useEffect } from "react";
-import { fetchCartData, sendCartData } from "./store/cart-actions";
+// import { useSelector, useDispatch } from "react-redux";
+// import { Fragment, useEffect } from "react";
+// import { fetchCartData, sendCartData } from "./store/cart-actions";
 import Cart from "./components/Cart/Cart";
 
 // Create a browser router

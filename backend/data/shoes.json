@@ -71,7 +71,7 @@
   },
   {
     "id": "sku11",
-    "name": "Nike ZoomX Invincible Run Flyknit",
+    "name": "Nike ZoomX Invincible",
     "category": "Women",
     "price": 140,
     "image": "https://res.cloudinary.com/dwsihr9yg/image/upload/v1724550679/kicks-shoes/nike-run_xno0wp.jpg"
@@ -141,7 +141,7 @@
   },
   {
     "id": "sku21",
-    "name": "Nike React Phantom Run Flyknit 2",
+    "name": "Nike React Run Flyknit 2",
     "category": "Women",
     "price": 125,
     "image": "https://res.cloudinary.com/dwsihr9yg/image/upload/v1724550680/kicks-shoes/airmaxSafari-blue_khjstd.jpg"

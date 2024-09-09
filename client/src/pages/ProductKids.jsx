@@ -1,9 +1,18 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
+
 import { Helmet } from "react-helmet";
 import KidsProductComponent from "../components/Product/KidsProductComponent";
 
 export default function Proudct() {
+  // Get current location
+  const location = useLocation();
+
+  // Reset scroll position
+  useEffect(() => {
+    // Scroll to top of the page on route change
+    window.scrollTo(0, 0);
+  }, [location]);
   return (
     <>
       <Helmet>
@@ -14,7 +23,7 @@ export default function Proudct() {
         {/* Header box */}
         <div className="px-5 space-y-6">
           {/* Breadcrumbs */}
-          <div className="breadcrumbs font-inter font-light text-zinc-500 text-md sm:text-lg">
+          <div className="breadcrumbs font-inter  text-zinc-700 text-md sm:text-lg">
             <ul>
               <li>
                 <Link to="/">Home</Link>

@@ -6,7 +6,7 @@ export default function AboutMessage() {
   return (
     <>
       {/* About container */}
-      <div className="m-10 ">
+      <div className="ml-3 mt-6 ">
         <div
           className="flex justify-center items-center sm:items-start 
         flex-col md:flex-row w-4/4 space-x-6"
@@ -26,7 +26,7 @@ export default function AboutMessage() {
                 We don’t just sell shoes-we build communities
               </h1>
             </div>
-            <div className="font-inter text-black text-lg md:text-base font-light py-3 w-full ">
+            <div className="font-inter text-black text-sm sm:text-base font-light py-3 w-full ">
               <p>
                 At our store, every pair of kicks represents a shared passion
                 for style, comfort, and self-expression. We believe in creating

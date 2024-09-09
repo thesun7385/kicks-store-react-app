@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import { Link } from "react-router-dom";
 
+import { motion } from "framer-motion";
+
 // Recommendation component
 export default function Recommendation() {
   // Initial state
@@ -26,7 +28,7 @@ export default function Recommendation() {
           // Random 3 products from data products
           const randomProducts = data.shoes
             .sort(() => 0.5 - Math.random())
-            .slice(0, 3);
+            .slice(0, 10);
 
           // Set fetched data
           setFetchedProducts(randomProducts);
@@ -44,14 +46,14 @@ export default function Recommendation() {
 
   return (
     <>
-      <div className="m-8">
-        <div className="flex flex-col sm:flex-row sm:justify-between">
-          <h1 className="uppercase font-inter text-black  text-3xl text-center sm:text-6xl sm:text-left font-extrabold">
+      <div>
+        <div className="py-8 flex flex-col sm:flex-row sm:justify-between">
+          <h1 className="pl-8 uppercase font-inter text-black  text-3xl text-center sm:text-6xl sm:text-left font-extrabold">
             New Arrivals
           </h1>
           {/* Link to see all items */}
           <Link to="/product">
-            <p className="font-inter text-sm font-bold underline py-5">
+            <p className="font-inter text-sm font-bold underline p-5">
               See all items
             </p>
           </Link>
@@ -60,14 +62,17 @@ export default function Recommendation() {
         {error && <p className="text-red-500">{error}</p>}
         {isLoading && (
           <div className="flex justify-center items-center">
-            <div className="m-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  ">
+            <div className="carousel rounded-box ">
               {/* Render skeletons while loading */}
+
               {Array.from({ length: 3 }).map((index) => (
-                <div
-                  className="m-5 skeleton card w-[80vw] h-[80vw] max-w-[237px]  
+                <div className="carousel-item" key={index}>
+                  <div
+                    className="m-5 skeleton card w-[80vw] h-[80vw] max-w-[237px]  
                 max-h-[230px] lg:max-w-[321px] lg:max-h-[337px] object-cover"
-                  key={index}
-                ></div>
+                    key={index}
+                  ></div>
+                </div>
               ))}
             </div>
           </div>
@@ -75,18 +80,27 @@ export default function Recommendation() {
         {/* New arrivals box */}
         {/* Render recommended shoes */}
         {!isLoading && !error && fetchedProducts.length > 0 && (
-          <div className="flex justify-center items-center">
-            <div className="m-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+          <div className="flex justify-center items-center gap-4">
+            {/* Carousel */}
+            <div className="carousel rounded-box ">
               {/* Add link for product id */}
               {fetchedProducts.map((product) => (
-                // Link to product detail
-                <Link
-                  to={`/product/${product.category}/${product.id}`}
+                // Motion div for animation
+                <motion.div
+                  className="carousel-item"
                   key={product.id}
+                  animate={{ x: [0, -1000] }}
+                  transition={{
+                    duration: 15, // Duration of animation
+                    ease: "linear", // Easing function for smoother motion
+                    repeat: Infinity, // Keeps looping
+                  }}
                 >
-                  {/* Render ProductCard component */}
-                  <ProductCard key={product.id} product={product} />
-                </Link>
+                  <Link to={`/product/${product.category}/${product.id}`}>
+                    {/* Render ProductCard component */}
+                    <ProductCard key={product.id} product={product} />
+                  </Link>
+                </motion.div>
               ))}
             </div>
           </div>

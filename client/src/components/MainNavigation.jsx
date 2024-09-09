@@ -24,14 +24,14 @@ export default function MainNavigation() {
         <header className="flex justify-center h-20">
           <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
 
-          <nav className="text-black flex flex-row justify-between w-full items-center p-8 ">
+          <nav className="text-black flex flex-row justify-between w-full items-center p-8">
             {/* Logo */}
 
             {/* <h1 className="font-jost uppercase font-extrabold italic text-base sm:text-xl ">
               Kicks Store
             </h1> */}
 
-            <div className=" bg-base-100 ">
+            <div className="bg-base-100">
               <NavLink to="/" end>
                 <a className="btn btn-ghost font-jost uppercase font-bold italic text-black text-base sm:text-xl">
                   Kicks Store
@@ -42,8 +42,8 @@ export default function MainNavigation() {
             <ul>
               {/* Navigation menu */}
               <div
-                className="h-6 w-full font-inter md:flex md:text-lg font-semibold space-x-4 
-              items-center justify-center hidden text-base  "
+                className="h-6 w-full font-inter md:flex md:text-lg font-bold space-x-4 
+              items-center justify-center hidden text-base "
               >
                 <NavLink
                   to="/product/men"

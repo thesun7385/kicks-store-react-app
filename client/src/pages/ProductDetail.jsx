@@ -67,10 +67,7 @@ export default function ProductDetail() {
           <>
             <div className="px-5 space-y-6">
               {/* Breadcrumbs */}
-              <div
-                className="breadcrumbs font-inter font-light text-zinc-500
-              text-base sm:text-lg"
-              >
+              <div className="breadcrumbs font-inter  text-zinc-700 text-md sm:text-lg">
                 <ul>
                   <li>
                     <Link to="/">Home</Link>

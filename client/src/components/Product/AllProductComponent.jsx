@@ -351,8 +351,8 @@ export default function SelectBox() {
                 {!isLoading && !error && fetchedProducts.length > 0 && (
                   <div>
                     <div
-                      className="m-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 
-            justify-items-center gap-x-10"
+                      className="grid grid-cols-1 md:grid-cols-2  xl:grid-cols-3 
+            justify-items-center gap-4"
                     >
                       {/* Add link for product id */}
                       {productList[page - 1].map((product) => (

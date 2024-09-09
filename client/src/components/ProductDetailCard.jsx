@@ -9,7 +9,7 @@ export default function ProductDetailCard({ product }) {
   // Dummy size array
   const usSize = [
     4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12,
-    12.5, 13, 14, 15,
+    12.5, 13,
   ];
 
   // Initial size
@@ -109,7 +109,7 @@ export default function ProductDetailCard({ product }) {
             />
           </div>
           {/* Product detail */}
-          <div className="font-inter flex flex-col p-5 space-y-5">
+          <div className="font-inter flex flex-col p-5 space-y-5 items-center sm:items-start ">
             <div
               className="text-base sm:text-lg 
             font-light text-zinc-400"
@@ -122,28 +122,30 @@ export default function ProductDetailCard({ product }) {
 
             <div className="text-xl">$ {product.price}</div>
             {/* size */}
-            <div>
-              <div className="py-2 text-lg">Select Size</div>
-              {usSize.map((s) => (
-                <button
-                  key={s}
-                  className={` border rounded-xl px-3 py-3 m-2 text-sm
+            <div className="flex flex-col lg:w-3/4 items-center sm:items-start">
+              <div className="text-lg  ">Select Size</div>
+              <div className="flex flex-wrap justify-center sm:justify-start">
+                {usSize.map((s) => (
+                  <button
+                    key={s}
+                    className={` border rounded-xl px-3 py-3 m-2 text-sm
                    ${
                      selectedSize === s
                        ? "bg-slate-800 text-white"
                        : "bg-white text-black border-slate-800 hover:bg-gray-800 hover:text-white"
                    }`}
-                  onClick={() => sizeHandler(s)}
-                >
-                  US {s}
-                </button>
-              ))}
+                    onClick={() => sizeHandler(s)}
+                  >
+                    US {s}
+                  </button>
+                ))}
+              </div>
             </div>
             {/* Cart Button */}
 
             <div className="flex flex-col gap-y-2 items-center">
               <button
-                className=" w-96 bg-black  text-white uppercase 
+                className="w-72 sm:w-96 bg-black  text-white uppercase 
               rounded-lg px-2 py-3  hover:bg-slate-800 border-2 border-black"
                 onClick={
                   selectedSize === 0 ? cartFeedbackHandler : addToCartHandler
@@ -155,7 +157,7 @@ export default function ProductDetailCard({ product }) {
               {/* Favorite Button */}
               <button
                 onClick={favoriteHandler}
-                className={`w-96 uppercase rounded-lg px-2 py-3 
+                className={`w-72 sm:w-96 uppercase rounded-lg px-2 py-3 
                 ${
                   favorite
                     ? "bg-red-400 text-white border-red-400 border-2 hover:bg-red-500 "
@@ -167,7 +169,7 @@ export default function ProductDetailCard({ product }) {
             </div>
             {/* Detail */}
             <div>
-              <p className="font-light">
+              <p className="font-light font-base p-3">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry's standard dummy
                 text ever since the 1500s, when an unknown printer took a galley
