@@ -21,7 +21,7 @@ export default function MainNavigation() {
         <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
 
         {/*  Nav bar content */}
-        <header className="flex justify-center h-20">
+        <header className="flex justify-center h-20 fixed top-0 left-0 w-full z-10 bg-white shadow-md">
           <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
 
           <nav className="text-black flex flex-row justify-between w-full items-center p-8">
@@ -31,7 +31,7 @@ export default function MainNavigation() {
               Kicks Store
             </h1> */}
 
-            <div className="bg-base-100">
+            <div>
               <NavLink to="/" end>
                 <a className="btn btn-ghost font-jost uppercase font-bold italic text-black text-base sm:text-xl">
                   Kicks Store

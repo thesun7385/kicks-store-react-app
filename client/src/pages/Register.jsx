@@ -9,7 +9,7 @@ export default function Register() {
         <meta charSet="utf-8" />
         <title>Sign In</title>
       </Helmet>
-      <section className="min-h-screen">
+      <section className="min-h-screen mt-24">
         <div className="px-5 space-y-6">
           {/* Breadcrumbs */}
           <div className="breadcrumbs font-inter  text-zinc-700 text-md sm:text-lg">

@@ -21,7 +21,7 @@ export default function Proudct() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Men</title>
       </Helmet>
-      <section className="min-h-screen">
+      <section className="min-h-screen mt-24">
         {/* Header box */}
         <div className="px-5 space-y-6">
           {/* Breadcrumbs */}

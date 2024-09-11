@@ -60,7 +60,7 @@ export default function ProductDetail() {
         <title>{product ? product.name : "Product Detail"}</title>
       </Helmet>
 
-      <section className="min-h-screen">
+      <section className="min-h-screen mt-24">
         {/* Product detail */}
         {product ? (
           // Header container
