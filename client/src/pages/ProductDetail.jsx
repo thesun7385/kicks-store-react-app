@@ -22,7 +22,7 @@ export default function ProductDetail() {
       try {
         setIsLoading(true);
         const response = await fetch(
-          `http://localhost:3000/shoes/${productId}`
+          `https://kicks-store-react-api.onrender.com/shoes/${productId}`
         );
 
         // Check response
