@@ -335,7 +335,15 @@ export default function MenProductComponent() {
               <div className="lg:col-span-3 ">
                 {/* Render all shoes */}
                 {/* Error message */}
-                {error && <p className="text-red-500">{error}</p>}
+                {error && (
+                  <p className="text-red-500">
+                    <div className="toast">
+                      <div className="alert alert-error">
+                        <span>Type Error: Failed to fetch</span>
+                      </div>
+                    </div>
+                  </p>
+                )}
                 {/* Loading state */}
                 {isLoading && (
                   <div
