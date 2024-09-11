@@ -17,7 +17,9 @@ export default function Recommendation() {
     async function fetchProduct() {
       try {
         setIsLoading(true);
-        const response = await fetch("http://localhost:3000/shoes");
+        const response = await fetch(
+          "https://kicks-store-react-api.onrender.com/shoes"
+        );
 
         // Check response
         if (!response.ok) {
