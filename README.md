@@ -30,13 +30,19 @@ Welcome to Kicks Store, your go-to destination for all things footwear! the web 
 ## Installation Steps
 1. Clone the Repository
    ```
-   git clone [https://github.com/thesun7385/kicks-store-react-app.git]
+   git clone https://github.com/thesun7385/kicks-store-react-app.git
    ```
 2. Navigate to the Project Directory
    ```
    cd kicks-store-react-app
    ```
-3. Install Dependencies
+
+3. Navigate to the Project Directory
+   ```
+   cd client
+   ```
+
+4. Install Dependencies
    ```
    npm install
    ```
