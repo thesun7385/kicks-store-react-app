@@ -22,7 +22,7 @@ export default function ProductDetail() {
       try {
         setIsLoading(true);
         const response = await fetch(
-          `${import.meta.env.VITE_APP_API_KEY_ALL_SHOES}/${productId}`
+          `${import.meta.env.VITE_APP_API_URL}/${productId}`
         );
 
         // Check response

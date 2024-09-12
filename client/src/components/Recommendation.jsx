@@ -17,9 +17,7 @@ export default function Recommendation() {
     async function fetchProduct() {
       try {
         setIsLoading(true);
-        const response = await fetch(
-          import.meta.env.VITE_APP_API_KEY_ALL_SHOES
-        );
+        const response = await fetch(import.meta.env.VITE_APP_API_URL);
 
         // Check response
         if (!response.ok) {
