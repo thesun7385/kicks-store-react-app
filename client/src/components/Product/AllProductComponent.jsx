@@ -58,7 +58,7 @@ export default function SelectBox() {
       try {
         setIsLoading(true);
         const response = await fetch(
-          "https://kicks-store-react-api.onrender.com/shoes"
+          import.meta.env.VITE_APP_API_KEY_ALL_SHOES
         );
 
         // Check response

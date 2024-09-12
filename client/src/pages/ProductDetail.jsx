@@ -22,7 +22,7 @@ export default function ProductDetail() {
       try {
         setIsLoading(true);
         const response = await fetch(
-          `https://kicks-store-react-api.onrender.com/shoes/${productId}`
+          `${import.meta.env.VITE_APP_API_KEY_ALL_SHOES}/${productId}`
         );
 
         // Check response
@@ -46,7 +46,11 @@ export default function ProductDetail() {
   }, [productId]); // Include productId as a dependency
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex flex-row items-center justify-center">
+        <span className="loading loading-spinner loading-lg"></span>
+      </div>
+    );
   }
 
   if (error) {
