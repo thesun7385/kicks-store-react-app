@@ -27,6 +27,10 @@ import ProductCard from "../ProductCard";
 // Import filter data
 import { filters, sortOptions, subCategories } from "../../store/fiter";
 
+// Import firebaseConfig
+import app from "../../firebaseConfig";
+import { getDatabase, ref, get } from "firebase/database";
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -51,37 +55,42 @@ export default function SelectBox() {
   const [fetchedProducts, setFetchedProducts] = useState([]); // Initialize as an empty array
   const [error, setError] = useState(null);
 
-  // Fetching product data from the server
+  // Fetching product with firebase
   useEffect(() => {
     // Function to fetch data
     async function fetchProduct() {
       try {
         setIsLoading(true);
-        const response = await fetch(import.meta.env.VITE_APP_API_URL);
 
-        // Check response
-        if (!response.ok) {
-          throw new Error("Something went wrong");
+        // Initialize Firebase database
+        const db = getDatabase(app);
+        const productsRef = ref(db, "shoes"); // Fetching "shoes" collection
+        const snapshot = await get(productsRef);
+
+        // Check if data exists
+        if (!snapshot.exists()) {
+          throw new Error("No products found");
         } else {
-          const data = await response.json();
+          // Get product data from snapshot as an object
+          const data = snapshot.val();
 
           // Set fetched data
-          setFetchedProducts(data.shoes);
+          setFetchedProducts(data);
 
           ////////////  Pagination ////////////
 
-          // Get the total number of pages
+          const PER_PAGE = 10; // Number of products per page
           const result = [];
 
-          // Calculate pagination only after the data is set
-          for (let i = 0; i < data.shoes.length; i += PER_PAGE) {
-            result.push(data.shoes.slice(i, i + PER_PAGE)); // slice the data and push in result arr
+          // Calculate pagination after the data is set
+          for (let i = 0; i < data.length; i += PER_PAGE) {
+            result.push(data.slice(i, i + PER_PAGE)); // Slice data per page
           }
 
           // Set the result to the productList state
           setProductList(result);
 
-          // Set the total number of pages
+          // Set initial page
           setPage(1);
         }
       } catch (error) {

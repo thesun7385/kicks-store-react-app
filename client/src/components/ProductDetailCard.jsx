@@ -19,7 +19,7 @@ export default function ProductDetailCard({ product }) {
   // function to handle size selection
   function sizeHandler(size) {
     setSelectedSize(size);
-    console.log(size);
+    // console.log(size);
   }
 
   // Dispatch actions from store

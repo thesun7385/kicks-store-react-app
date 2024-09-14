@@ -5,6 +5,10 @@ import ProductDetailCard from "../components/ProductDetailCard";
 import Recommendation from "../components/Recommendation";
 import { Link } from "react-router-dom";
 
+// Import firebaseConfig
+import app from "../firebaseConfig";
+import { getDatabase, ref, get } from "firebase/database";
+
 // Product detail page
 export default function ProductDetail() {
   // Initial state
@@ -15,24 +19,29 @@ export default function ProductDetail() {
   // Use params to get the productId
   const { productId } = useParams();
 
-  // Fetching product data from the server
+  const productIndex = productId.replace("sku", "");
+
+  // Fetching product with firebase
   useEffect(() => {
     // Function to fetch data
     async function fetchProduct() {
       try {
         setIsLoading(true);
-        const response = await fetch(
-          `${import.meta.env.VITE_APP_API_URL}/${productId}`
-        );
 
-        // Check response
-        if (!response.ok) {
-          throw new Error("Something went wrong");
+        // Initialize Firebase database
+        const db = getDatabase(app);
+        const productsRef = ref(db, `shoes/${productIndex}`); // Fetching "shoes" collection
+        const snapshot = await get(productsRef);
+
+        // Check if data exists
+        if (!snapshot.exists()) {
+          throw new Error("No products found");
         } else {
-          const data = await response.json();
+          // Get product data from snapshot as an object
+          const data = snapshot.val();
 
           // Set fetched data
-          setProduct(data.shoe); // Assuming `data` is the single product object
+          setProduct(data);
         }
       } catch (error) {
         setError(error.message);
@@ -43,7 +52,7 @@ export default function ProductDetail() {
 
     // Call fetchProduct function
     fetchProduct();
-  }, [productId]); // Include productId as a dependency
+  }, [productIndex]);
 
   if (isLoading) {
     return (

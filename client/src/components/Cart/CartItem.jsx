@@ -1,6 +1,7 @@
-import React from "react";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
+
+import { Link } from "react-router-dom";
 
 // Cart item component
 export default function CartItem(props) {
@@ -28,11 +29,13 @@ export default function CartItem(props) {
           className="h-24 w-24 flex-shrink-0 overflow-hidden 
         rounded-md border border-gray-200"
         >
-          <img
-            alt={name}
-            src={image}
-            className="h-full w-full object-cover object-center"
-          />
+          <a href={`/product/${category}/${id}`}>
+            <img
+              alt={name}
+              src={image}
+              className="h-full w-full object-cover object-center cursor-pointer"
+            />
+          </a>
         </div>
 
         <div className="ml-4 flex flex-1 flex-col">
@@ -41,7 +44,7 @@ export default function CartItem(props) {
               <h3>
                 <a>{name}</a>
               </h3>
-              <p className="ml-2">$ {total}</p>
+              <p className="ml-2">${total}</p>
             </div>
             <p className="mt-1 text-sm text-gray-500">{category}</p>
             <p className="mt-1 text-sm text-gray-500">US {size}</p>
@@ -55,19 +58,20 @@ export default function CartItem(props) {
                 className="font-medium text-slate-800 hover:text-slate-500 mr-2"
                 onClick={addItemHandler}
               >
-                Add
+                + Add
               </button>
               <button
                 type="button"
                 className="font-medium text-slate-800 hover:text-slate-500"
                 onClick={removeItemHandler}
               >
-                Remove
+                - Remove
               </button>
             </div>
           </div>
         </div>
       </li>
     </ul>
+    // </Link>
   );
 }

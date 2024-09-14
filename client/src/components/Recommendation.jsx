@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 
 import { motion } from "framer-motion";
 
+// Import firebaseConfig
+import app from "../firebaseConfig";
+import { getDatabase, ref, get } from "firebase/database";
+
 // Recommendation component
 export default function Recommendation() {
   // Initial state
@@ -11,24 +15,28 @@ export default function Recommendation() {
   const [fetchedProducts, setFetchedProducts] = useState([]); // Initialize as an empty array
   const [error, setError] = useState(null);
 
-  // Fetching product data from the server
+  // Fetching product with firebase
   useEffect(() => {
     // Function to fetch data
     async function fetchProduct() {
       try {
         setIsLoading(true);
-        const response = await fetch(import.meta.env.VITE_APP_API_URL);
+
+        const db = getDatabase(app);
+        const productsRef = ref(db, "shoes");
+        const snapshot = await get(productsRef);
 
         // Check response
-        if (!response.ok) {
+        if (!snapshot.exists()) {
           throw new Error("Something went wrong");
         } else {
-          const data = await response.json();
+          // Get product data from snapshot as an object
+          const data = snapshot.val();
 
-          // Random 3 products from data products
-          const randomProducts = data.shoes
+          // Randomly select 3 products
+          const randomProducts = data
             .sort(() => 0.5 - Math.random())
-            .slice(0, 10);
+            .slice(0, 10); // Get 3 random products
 
           // Set fetched data
           setFetchedProducts(randomProducts);

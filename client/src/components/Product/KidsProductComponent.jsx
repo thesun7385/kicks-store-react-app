@@ -27,6 +27,10 @@ import ProductCard from "../ProductCard";
 // Import filter data
 import { filters, sortOptions, subCategories } from "../../store/fiter";
 
+// Import firebaseConfig
+import app from "../../firebaseConfig";
+import { getDatabase, ref, get } from "firebase/database";
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -50,22 +54,27 @@ export default function KidsProductComponent() {
   const [fetchedProducts, setFetchedProducts] = useState([]); // Initialize as an empty array
   const [error, setError] = useState(null);
 
-  // Fetching product data from the server
+  // Fetching Kids product with firebase
+  // Fetching Women product with firebase
   useEffect(() => {
     // Function to fetch data
     async function fetchProduct() {
       try {
         setIsLoading(true);
-        const response = await fetch(import.meta.env.VITE_APP_API_URL);
 
-        // Check response
-        if (!response.ok) {
-          throw new Error("Something went wrong");
+        // Initialize Firebase database
+        const db = getDatabase(app);
+        const productsRef = ref(db, "shoes"); // Fetching "shoes" collection
+        const snapshot = await get(productsRef);
+
+        // Check if data exists
+        if (!snapshot.exists()) {
+          throw new Error("No products found");
         } else {
-          const data = await response.json();
-
+          // Get product data from snapshot as an object
+          const data = snapshot.val();
           // Get Men's shoes
-          const kidsShoes = data.shoes.filter(
+          const kidsShoes = data.filter(
             (shoe) => shoe.category === "Kids" || shoe.category === "unisex"
           );
 
@@ -74,23 +83,18 @@ export default function KidsProductComponent() {
 
           ////////////  Pagination ////////////
 
-          // Get the total number of pages
           const result = [];
 
-          // Calculate pagination only after the data is set
+          // Calculate pagination after the data is set
           for (let i = 0; i < kidsShoes.length; i += PER_PAGE) {
-            result.push(kidsShoes.slice(i, i + PER_PAGE)); // slice the data and push in result arr
+            result.push(kidsShoes.slice(i, i + PER_PAGE)); // Slice data per page
           }
 
           // Set the result to the productList state
           setProductList(result);
 
-          // Set the total number of pages
+          // Set initial page
           setPage(1);
-
-          // console.log(fetchedProducts);
-
-          // console.log(fetchedProducts);
         }
       } catch (error) {
         setError(error.message);
