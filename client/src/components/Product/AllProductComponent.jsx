@@ -21,7 +21,6 @@ import {
 
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet";
 import ProductCard from "../ProductCard";
 
 // Import filter data
