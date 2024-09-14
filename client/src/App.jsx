@@ -18,7 +18,6 @@ import Favorite from "./pages/Favorite";
 // import { useSelector, useDispatch } from "react-redux";
 // import { Fragment, useEffect } from "react";
 // import { fetchCartData, sendCartData } from "./store/cart-actions";
-import Cart from "./components/Cart/Cart";
 
 // Create a browser router
 const router = createBrowserRouter([
@@ -107,7 +106,6 @@ function App() {
   return (
     <>
       <RouterProvider router={router} />
-      <Cart />
     </>
   );
 }

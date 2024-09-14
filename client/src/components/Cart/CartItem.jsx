@@ -24,19 +24,20 @@ export default function CartItem(props) {
   return (
     <ul role="list" className="-my-6 divide-y divide-gray-200">
       {/* Render cart items */}
+
       <li key={id} className="flex py-6">
-        <div
-          className="h-24 w-24 flex-shrink-0 overflow-hidden 
+        <Link to={`/product/${category}/${id}`}>
+          <div
+            className="h-24 w-24 flex-shrink-0 overflow-hidden 
         rounded-md border border-gray-200"
-        >
-          <a href={`/product/${category}/${id}`}>
+          >
             <img
               alt={name}
               src={image}
               className="h-full w-full object-cover object-center cursor-pointer"
             />
-          </a>
-        </div>
+          </div>
+        </Link>
 
         <div className="ml-4 flex flex-1 flex-col">
           <div>
@@ -72,6 +73,5 @@ export default function CartItem(props) {
         </div>
       </li>
     </ul>
-    // </Link>
   );
 }

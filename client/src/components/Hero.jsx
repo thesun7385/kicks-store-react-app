@@ -8,7 +8,13 @@ export default function Hero() {
     sm:justify-start sm:items-start sm:flex-col-reverse"
     >
       {/* Auto play video */}
-      <video autoPlay loop muted className="object-cover w-full h-[750px]">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="object-cover w-full h-[750px]"
+      >
         <source src={heroVideo} type="video/mp4" />
       </video>
       {/* Content box */}
